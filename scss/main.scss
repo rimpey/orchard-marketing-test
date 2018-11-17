@@ -1,0 +1,68 @@
+@import 'variables/index';
+@import 'base/index';
+
+
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: $black-shade;
+    color: $white;
+}
+
+.food-colours-title {
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    margin: 10px 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $white;
+}
+
+.food-colours-detail {
+    margin-top: 10px;
+
+    .image-wrapper {
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            transform: scale(1);
+            transition: .3s ease-in-out;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.3);
+            }
+        }
+    }
+
+    .food-summary-wrapper {
+        text-align: center;
+        padding: 30px 10px 40px 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 17px;
+
+        @include media-breakpoint-up(md) {
+            padding: 30px 40px 40px 40px;
+        }
+
+        .food-summary-title {
+            font-weight: 400;
+            padding-bottom: 10px;
+        }
+        .food-summary {
+            font-weight: 100;
+            line-height: 1.5;
+        }
+    }
+}
