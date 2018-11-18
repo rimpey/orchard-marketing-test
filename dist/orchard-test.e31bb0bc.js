@@ -17234,77 +17234,50 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     value: true
   });
 });
-},{"jquery":"node_modules/jquery/dist/jquery.js","popper.js":"node_modules/popper.js/dist/esm/popper.js"}],"../../../.nvm/versions/node/v8.11.3/lib/node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
-
-},{}],"jokes.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.jokes = void 0;
-//import axios from "axios";
-// module.exports = {
-//     getOne: function () {
-//         return new Promise((resolve, reject) => {
-//             fetch('http://api.icndb.com/jokes/random')
-//             .then(res => res.json())
-//             .then(data => {
-//                 resolve(data.value.joke);
-//             })
-//         });
-//     }
-// }
-var jokes = {
-  getOne: function getOne() {
-    return new Promise(function (resolve, reject) {
-      fetch('http://api.icndb.com/jokes/random').then(function (res) {
-        return res.json();
-      }).then(function (data) {
-        resolve(data.value.joke);
-      });
-    });
-  } // export const jokes = {
-  //     getOne: function () {
-  //         return new Promise((resolve, reject) => {
-  //             axios.get('http://api.icndb.com/jokes/random')
-  //                 .then(res => {
-  //                     resolve(res.data.value.joke);
-  //                 });
-  //         });
-  //     }
-  // }
-
-};
-exports.jokes = jokes;
-},{}],"index.js":[function(require,module,exports) {
+},{"jquery":"node_modules/jquery/dist/jquery.js","popper.js":"node_modules/popper.js/dist/esm/popper.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./scss/main.scss");
 
 var _jquery = _interopRequireDefault(require("jquery"));
 
-var _popper = _interopRequireDefault(require("popper.js"));
-
 var _bootstrap = _interopRequireDefault(require("bootstrap"));
-
-var _fs = _interopRequireDefault(require("fs"));
-
-var _jokes = require("./jokes");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const jokes = require('./jokes');
-_jokes.jokes.getOne().then(function (joke) {
-  (0, _jquery.default)('#joke').text(joke); //document.getElementById('joke').innerHTML = joke; // Vanilla Js
-});
+// jQuery log element clicked
+// $(document).on('click', 'a', event => console.log(event.target));
+// On node click console log element
+var elements = document.getElementsByTagName('a');
 
-var copy = "Copyright 2018";
-(0, _jquery.default)('#copy').text(copy);
-(0, _jquery.default)("#reset").click(function () {
-  document.location.reload(true);
-});
-},{"./scss/main.scss":"scss/main.scss","jquery":"node_modules/jquery/dist/jquery.js","popper.js":"node_modules/popper.js/dist/esm/popper.js","bootstrap":"node_modules/bootstrap/dist/js/bootstrap.js","fs":"../../../.nvm/versions/node/v8.11.3/lib/node_modules/parcel-bundler/src/builtins/_empty.js","./jokes":"jokes.js"}],"../../../.nvm/versions/node/v8.11.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+for (var i = 0, len = elements.length; i < len; i++) {
+  elements[i].onclick = function (event) {
+    console.log(event);
+    var targetElement = event.target;
+    console.log(targetElement);
+  };
+} // Get the modal
+
+
+var modal = document.getElementById('foodModal'); // Get the image and insert it inside the modal - use its "alt" text as a caption
+
+var img = document.getElementsByClassName('imageModal');
+var modalImg = document.getElementById("imageDisplayedInModal"); // loop through multiple imageModels
+
+for (var _i = 0, _len = img.length; _i < _len; _i++) {
+  img[_i].onclick = function (event) {
+    modal.style.display = "block";
+    modalImg.src = event.target.src;
+  };
+} // Get the <span> element that closes the modal
+
+
+var span = document.getElementsByClassName("close")[0]; // When the user clicks on <span> (x), close the modal
+
+span.onclick = function () {
+  modal.style.display = "none";
+};
+},{"./scss/main.scss":"scss/main.scss","jquery":"node_modules/jquery/dist/jquery.js","bootstrap":"node_modules/bootstrap/dist/js/bootstrap.js"}],"../../../.nvm/versions/node/v8.11.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -17331,7 +17304,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56001" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57366" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
